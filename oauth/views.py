@@ -15,9 +15,9 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import FormView
 
-from djangoblog.blog_signals import oauth_user_login_signal
-from djangoblog.utils import get_current_site
-from djangoblog.utils import send_email, get_sha256
+from myblog.blog_signals import oauth_user_login_signal
+from myblog.utils import get_current_site
+from myblog.utils import send_email, get_sha256
 from oauth.forms import RequireEmailForm
 from .models import OAuthUser
 from .oauthmanager import get_manager_by_type, OAuthAccessTokenException
@@ -74,7 +74,7 @@ def authorize(request):
     if user:
         if not user.nikename or not user.nikename.strip():
             import datetime
-            user.nikename = "djangoblog" + datetime.datetime.now().strftime('%y%m%d%I%M%S')
+            user.nikename = "myblog" + datetime.datetime.now().strftime('%y%m%d%I%M%S')
         try:
             temp = OAuthUser.objects.get(type=type, openid=user.openid)
             temp.picture = user.picture
@@ -102,7 +102,7 @@ def authorize(request):
                         except ObjectDoesNotExist:
                             author.username = user.nikename
                         else:
-                            author.username = "djangoblog" + datetime.datetime.now().strftime('%y%m%d%I%M%S')
+                            author.username = "myblog" + datetime.datetime.now().strftime('%y%m%d%I%M%S')
                         author.source = 'authorize'
                         author.save()
 
@@ -141,7 +141,7 @@ def emailconfirm(request, id, sign):
             if result[1]:
                 author.source = 'emailconfirm'
                 author.username = oauthuser.nikename.strip() if oauthuser.nikename.strip(
-                ) else "djangoblog" + datetime.datetime.now().strftime('%y%m%d%I%M%S')
+                ) else "myblog" + datetime.datetime.now().strftime('%y%m%d%I%M%S')
                 author.save()
         oauthuser.author = author
         oauthuser.save()

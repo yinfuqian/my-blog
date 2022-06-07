@@ -1,9 +1,9 @@
 from django.test import TestCase
 
-from djangoblog.utils import *
+from myblog.utils import *
 
 
-class DjangoBlogTest(TestCase):
+class myblogTest(TestCase):
     def setUp(self):
         pass
 

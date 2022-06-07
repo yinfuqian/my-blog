@@ -1,4 +1,4 @@
-"""djangoblog URL Configuration
+"""myblog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -19,9 +19,9 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include
 
-from djangoblog.admin_site import admin_site
-from djangoblog.feeds import DjangoBlogFeed
-from djangoblog.sitemap import StaticViewSitemap, ArticleSiteMap, CategorySiteMap, TagSiteMap, UserSiteMap
+from myblog.admin_site import admin_site
+from myblog.feeds import myblogFeed
+from myblog.sitemap import StaticViewSitemap, ArticleSiteMap, CategorySiteMap, TagSiteMap, UserSiteMap
 
 sitemaps = {
 
@@ -44,8 +44,8 @@ urlpatterns = [
                   re_path(r'', include('oauth.urls', namespace='oauth')),
                   re_path(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
                       name='django.contrib.sitemaps.views.sitemap'),
-                  re_path(r'^feed/$', DjangoBlogFeed()),
-                  re_path(r'^rss/$', DjangoBlogFeed()),
+                  re_path(r'^feed/$', myblogFeed()),
+                  re_path(r'^rss/$', myblogFeed()),
                   re_path(r'^search', include('haystack.urls'), name='search'),
                   re_path(r'', include('servermanager.urls', namespace='servermanager')),
                   re_path(r'', include('owntracks.urls', namespace='owntracks'))

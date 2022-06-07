@@ -4,11 +4,11 @@ from django.contrib.auth import get_user_model
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
 
-from djangoblog.utils import CommonMarkdown
+from myblog.utils import CommonMarkdown
 from blog.models import Article
 
 
-class DjangoBlogFeed(Feed):
+class myblogFeed(Feed):
     feed_type = Rss201rev2Feed
 
     description = '大巧无工,重剑无锋.'

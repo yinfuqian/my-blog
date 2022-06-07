@@ -2,7 +2,7 @@ name: publish release
 
 on:
   release:
-    types: [ published ]
+    types: [published]
 
 jobs:
   docker:
@@ -36,4 +36,4 @@ jobs:
             linux/arm/v7
             linux/arm/v6
             linux/386
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/djangoblog:${{ github.event.release.tag_name }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/myblog:${{ github.event.release.tag_name }}

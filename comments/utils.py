@@ -1,7 +1,7 @@
 import logging
 
-from djangoblog.utils import get_current_site
-from djangoblog.utils import send_email
+from myblog.utils import get_current_site
+from myblog.utils import send_email
 
 logger = logging.getLogger(__name__)
 

@@ -9,9 +9,9 @@ from django.core.mail import EmailMultiAlternatives
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from djangoblog.spider_notify import SpiderNotify
-from djangoblog.utils import cache, expire_view_cache, delete_sidebar_cache, delete_view_cache
-from djangoblog.utils import get_current_site
+from myblog.spider_notify import SpiderNotify
+from myblog.utils import cache, expire_view_cache, delete_sidebar_cache, delete_view_cache
+from myblog.utils import get_current_site
 from comments.models import Comment
 from comments.utils import send_comment_email
 from oauth.models import OAuthUser
@@ -57,7 +57,7 @@ def oauth_user_login_signal_handler(sender, **kwargs):
     oauthuser = OAuthUser.objects.get(id=id)
     site = get_current_site().domain
     if oauthuser.picture and not oauthuser.picture.find(site) >= 0:
-        from djangoblog.utils import save_user_avatar
+        from myblog.utils import save_user_avatar
         oauthuser.picture = save_user_avatar(oauthuser.picture)
         oauthuser.save()
 

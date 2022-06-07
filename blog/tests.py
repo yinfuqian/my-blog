@@ -12,7 +12,7 @@ from accounts.models import BlogUser
 from blog.forms import BlogSearchForm
 from blog.models import Article, Category, Tag, SideBar, Links
 from blog.templatetags.blog_tags import load_pagination_info, load_articletags
-from djangoblog.utils import get_current_site, get_sha256
+from myblog.utils import get_current_site, get_sha256
 
 
 # Create your tests here.
@@ -85,7 +85,7 @@ class ArticleTest(TestCase):
 
         response = self.client.get(article.get_absolute_url())
         self.assertEqual(response.status_code, 200)
-        from djangoblog.spider_notify import SpiderNotify
+        from myblog.spider_notify import SpiderNotify
         SpiderNotify.notify(article.get_absolute_url())
         response = self.client.get(tag.get_absolute_url())
         self.assertEqual(response.status_code, 200)
@@ -120,7 +120,7 @@ class ArticleTest(TestCase):
         f = BlogSearchForm()
         f.search()
         # self.client.login(username='liangliangyy', password='liangliangyy')
-        from djangoblog.spider_notify import SpiderNotify
+        from myblog.spider_notify import SpiderNotify
         SpiderNotify.baidu_notify([article.get_full_url()])
 
         from blog.templatetags.blog_tags import gravatar_url, gravatar
@@ -178,7 +178,7 @@ class ArticleTest(TestCase):
                 '/upload?sign=' + sign, form_data, follow=True)
             self.assertEqual(rsp.status_code, 200)
         os.remove(imagepath)
-        from djangoblog.utils import save_user_avatar, send_email
+        from myblog.utils import save_user_avatar, send_email
         send_email(['qq@qq.com'], 'testTitle', 'testContent')
         save_user_avatar(
             'https://www.python.org/static/img/python-logo@2x.png')

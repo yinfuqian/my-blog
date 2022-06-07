@@ -5,7 +5,7 @@ import jsonpickle
 from werobot import WeRoBot
 from werobot.replies import ArticlesReply, Article
 from django.conf import settings
-from djangoblog.utils import get_sha256
+from myblog.utils import get_sha256
 from servermanager.api.blogapi import BlogApi
 from servermanager.api.commonapi import TuLing
 from servermanager.models import commands

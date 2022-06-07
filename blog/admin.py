@@ -102,7 +102,7 @@ class ArticlelAdmin(admin.ModelAdmin):
             url = obj.get_full_url()
             return url
         else:
-            from djangoblog.utils import get_current_site
+            from myblog.utils import get_current_site
             site = get_current_site().domain
             return site
 

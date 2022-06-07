@@ -3,7 +3,7 @@ from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from djangoblog.utils import *
+from myblog.utils import *
 from accounts.models import BlogUser
 from blog.models import Article, Category
 from . import utils

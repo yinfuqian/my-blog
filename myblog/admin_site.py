@@ -8,7 +8,7 @@ from blog.admin import *
 from blog.models import *
 from comments.admin import *
 from comments.models import *
-from djangoblog.logentryadmin import LogEntryAdmin
+from myblog.logentryadmin import LogEntryAdmin
 from oauth.admin import *
 from oauth.models import *
 from owntracks.admin import *
@@ -17,9 +17,9 @@ from servermanager.admin import *
 from servermanager.models import *
 
 
-class DjangoBlogAdminSite(AdminSite):
-    site_header = 'djangoblog administration'
-    site_title = 'djangoblog site admin'
+class myblogAdminSite(AdminSite):
+    site_header = 'myblog administration'
+    site_title = 'myblog site admin'
 
     def __init__(self, name='admin'):
         super().__init__(name)
@@ -38,7 +38,7 @@ class DjangoBlogAdminSite(AdminSite):
     #     return urls + my_urls
 
 
-admin_site = DjangoBlogAdminSite(name='admin')
+admin_site = myblogAdminSite(name='admin')
 
 admin_site.register(Article, ArticlelAdmin)
 admin_site.register(Category, CategoryAdmin)

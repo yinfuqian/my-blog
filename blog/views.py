@@ -14,7 +14,7 @@ from django.views.generic.list import ListView
 
 from blog.models import Article, Category, Tag, Links, LinkShowType
 from comments.forms import CommentForm
-from djangoblog.utils import cache, get_sha256, get_blog_setting
+from myblog.utils import cache, get_sha256, get_blog_setting
 
 logger = logging.getLogger(__name__)
 

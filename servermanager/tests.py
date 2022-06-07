@@ -2,7 +2,7 @@ from django.test import Client, RequestFactory, TestCase
 from django.utils import timezone
 from werobot.messages.messages import TextMessage
 
-from djangoblog.utils import get_current_site
+from myblog.utils import get_current_site
 from accounts.models import BlogUser
 from blog.models import Category, Article
 from servermanager.api.commonapi import TuLing

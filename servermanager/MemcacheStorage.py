@@ -1,7 +1,7 @@
 from werobot.session import SessionStorage
 from werobot.utils import json_loads, json_dumps
 
-from djangoblog.utils import cache
+from myblog.utils import cache
 
 
 class MemcacheStorage(SessionStorage):

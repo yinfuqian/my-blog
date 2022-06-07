@@ -122,7 +122,7 @@ class CommonMarkdown:
 
 
 def send_email(emailto, title, content):
-    from djangoblog.blog_signals import send_email_signal
+    from myblog.blog_signals import send_email_signal
     send_email_signal.send(
         send_email.__class__,
         emailto=emailto,
@@ -150,7 +150,7 @@ def get_blog_setting():
         from blog.models import BlogSettings
         if not BlogSettings.objects.count():
             setting = BlogSettings()
-            setting.sitename = 'djangoblog'
+            setting.sitename = 'myblog'
             setting.site_description = '基于Django的博客系统'
             setting.site_seo_description = '基于Django的博客系统'
             setting.site_keywords = 'Django,Python'

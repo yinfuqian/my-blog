@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 
-from djangoblog.spider_notify import SpiderNotify
-from djangoblog.utils import get_current_site
+from myblog.spider_notify import SpiderNotify
+from myblog.utils import get_current_site
 from blog.models import Article, Tag, Category
 
 site = get_current_site().domain

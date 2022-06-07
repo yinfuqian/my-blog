@@ -10,8 +10,8 @@ from django.utils.translation import gettext_lazy as _
 from mdeditor.fields import MDTextField
 from uuslug import slugify
 
-from djangoblog.utils import cache_decorator, cache
-from djangoblog.utils import get_current_site
+from myblog.utils import cache_decorator, cache
+from myblog.utils import get_current_site
 
 logger = logging.getLogger(__name__)
 
@@ -361,5 +361,5 @@ class BlogSettings(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        from djangoblog.utils import cache
+        from myblog.utils import cache
         cache.clear()

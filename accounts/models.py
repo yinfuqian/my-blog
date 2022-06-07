@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.timezone import now
 
-from djangoblog.utils import get_current_site
+from myblog.utils import get_current_site
 
 
 # Create your models here.

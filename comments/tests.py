@@ -6,8 +6,8 @@ from accounts.models import BlogUser
 from blog.models import Category, Article
 from comments.models import Comment
 from comments.templatetags.comments_tags import *
-from djangoblog.utils import get_current_site
-from djangoblog.utils import get_max_articleid_commentid
+from myblog.utils import get_current_site
+from myblog.utils import get_max_articleid_commentid
 
 
 # Create your tests here.

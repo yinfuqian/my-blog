@@ -13,9 +13,9 @@ from django.utils.safestring import mark_safe
 
 from blog.models import Article, Category, Tag, Links, SideBar, LinkShowType
 from comments.models import Comment
-from djangoblog.utils import CommonMarkdown
-from djangoblog.utils import cache
-from djangoblog.utils import get_current_site
+from myblog.utils import CommonMarkdown
+from myblog.utils import cache
+from myblog.utils import get_current_site
 from oauth.models import OAuthUser
 
 logger = logging.getLogger(__name__)
@@ -49,7 +49,7 @@ def custom_markdown(content):
 
 @register.simple_tag
 def get_markdown_toc(content):
-    from djangoblog.utils import CommonMarkdown
+    from myblog.utils import CommonMarkdown
     body, toc = CommonMarkdown.get_markdown_with_toc(content)
     return mark_safe(toc)
 
@@ -63,7 +63,7 @@ def truncatechars_content(content):
     :return:
     """
     from django.template.defaultfilters import truncatechars_html
-    from djangoblog.utils import get_blog_setting
+    from myblog.utils import get_blog_setting
     blogsetting = get_blog_setting()
     return truncatechars_html(content, blogsetting.article_sub_length)
 
@@ -84,7 +84,7 @@ def load_breadcrumb(article):
     :return:
     """
     names = article.get_category_tree()
-    from djangoblog.utils import get_blog_setting
+    from myblog.utils import get_blog_setting
     blogsetting = get_blog_setting()
     site = get_current_site().domain
     names.append((blogsetting.sitename, '/'))
@@ -129,7 +129,7 @@ def load_sidebar(user, linktype):
         return value
     else:
         logger.info('load sidebar')
-        from djangoblog.utils import get_blog_setting
+        from myblog.utils import get_blog_setting
         blogsetting = get_blog_setting()
         recent_articles = Article.objects.filter(
             status='p')[:blogsetting.sidebar_article_count]
@@ -267,7 +267,7 @@ def load_article_detail(article, isindex, user):
     :param isindex:是否列表页，若是列表页只显示摘要
     :return:
     """
-    from djangoblog.utils import get_blog_setting
+    from myblog.utils import get_blog_setting
     blogsetting = get_blog_setting()
 
     return {

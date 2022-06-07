@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime
 
-from djangoblog.utils import cache, get_blog_setting
+from myblog.utils import cache, get_blog_setting
 from .models import Category, Article
 
 logger = logging.getLogger(__name__)
