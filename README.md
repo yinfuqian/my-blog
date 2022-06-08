@@ -3,10 +3,6 @@
 🌍
 _[English](/docs/README-en.md) ∙ [简体中文](README.md)_
 
-基于`python3.8`和`Django4.0`的博客。
-
-[![Django CI](https://github.com/liangliangyy/myblog/actions/workflows/django.yml/badge.svg)](https://github.com/liangliangyy/myblog/actions/workflows/django.yml) [![CodeQL](https://github.com/liangliangyy/myblog/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/liangliangyy/myblog/actions/workflows/codeql-analysis.yml) [![codecov](https://codecov.io/gh/liangliangyy/myblog/branch/master/graph/badge.svg)](https://codecov.io/gh/liangliangyy/myblog) [![license](https://img.shields.io/github/license/liangliangyy/myblog.svg)]()
-
 ## 主要功能：
 
 - 文章，页面，分类目录，标签的添加，删除，编辑等。文章、评论及页面支持`Markdown`，支持代码高亮。
